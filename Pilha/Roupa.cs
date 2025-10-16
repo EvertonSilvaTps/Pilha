@@ -17,11 +17,12 @@ namespace Pilha
         {
             this.Tipo = tipo;
             this.Cor = cor;
+            Proximo = null;
         }
 
         public override string ToString()
         {
-            return $"Tipo: {this.Tipo}\nCor: {this.Cor}";
+            return $"Tipo: {this.Tipo}\nCor: {this.Cor}\n";
         }
 
     }

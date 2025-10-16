@@ -10,9 +10,14 @@ namespace Pilha
     {
         public Roupa Topo;  // head = cabeça = inicio da pilha
 
+        public PilhaRoupa()
+        {
+            Topo = null;
+        }
+
+
         public void Push(Roupa roupa) // Empurrar = inserir
         {
-            roupa.Proximo = null;
             if (Vazia())
                 Topo = roupa;
             else
@@ -31,30 +36,26 @@ namespace Pilha
         public void Pop()  // remover
         {
             if (Vazia())
-                Console.WriteLine("Pilha vazia");
+                Console.WriteLine("\nPilha vazia");
             else
+                Console.WriteLine($"{Topo.ToString()}Foi retirado da pilha");
                 Topo = Topo.Proximo;
         }
 
         public void ImprimirPilha()
         {
             if (Vazia())
-                Console.WriteLine("Fila Vazia");
+                Console.WriteLine("\nPilha vazia");
             else
             {
                 Roupa aux = Topo;
                 while (aux != null)
                 {
-                    Console.WriteLine(aux.Tipo);
-                    Console.WriteLine(aux.Cor);
+                    Console.WriteLine(Topo.ToString());
                     aux = aux.Proximo;
                 }
             }
 
         }
-
-
-
-
     }
 }

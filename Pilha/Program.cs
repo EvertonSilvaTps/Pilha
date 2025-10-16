@@ -5,15 +5,22 @@ using System.Threading.Channels;
 
 Console.WriteLine("=-=-=-=  Informe o tipo e a cor da roupa  =-=-=-=-=-=-");
 
-int op;
+PilhaRoupa Armario = new PilhaRoupa();
+Roupa roupa;
+int op = 0;
+int cont = 0;
 
-while (true)
+while (op != 4)
 {
+    if (cont > 0)
+        Console.ReadLine();
+        Console.Clear();
     Console.WriteLine(" -=-=-=-=-=-=-=-=-=-=-=-=-=-=  Menu  -=-=-=-=-=-=-=-=-=-=-=-=-=-= \n");
     Console.WriteLine("   [ 1 ] Adicionar roupa    |    [ 2 ] Remover roupa");
-    Console.WriteLine("   [ 3 ] Exibir        |    [ 4 ] Sair");
+    Console.WriteLine("   [ 3 ] Exibir             |    [ 4 ] Sair");
     Console.Write("\nInforme uma opção: ");
     op = int.Parse(Console.ReadLine()!);
+    Console.WriteLine();
 
     switch (op)
     {
@@ -22,16 +29,17 @@ while (true)
             string tipo = Console.ReadLine();
             Console.Write("Cor: ");
             string cor = Console.ReadLine();
-            Roupa armario = new Roupa(tipo, cor);
-            armario.Tipo = tipo;
-            armario.Cor = cor;
+            roupa = new Roupa(tipo, cor);
+            Armario.Push(roupa);
             break;
         case 2:
-            armario.
+            Armario.Pop();
             break;
         case 3:
+            Armario.ImprimirPilha();
             break;
-        case 4:
+        default:
             break;
     }
+    cont++;
 }
